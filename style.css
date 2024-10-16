@@ -465,3 +465,149 @@ form textarea {
 .hidden {
     visibility: hidden;
 }
+/* Default styles for all screens */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --accent-color: #ff004f;
+}
+
+[data-theme="dark"] {
+  --bg-color: #080808;
+  --text-color: #ffffff;
+  --accent-color: #ff004f;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px; /* Limit max width for very large screens */
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 30px; /* Space between columns */
+}
+
+.about-col-1 img {
+  width: 100%;
+  max-width: 35vw; /* Dynamically size the image based on viewport width */
+  height: auto;
+  border-radius: 15px;
+}
+
+.about-col-2 {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.about-col-2 p {
+  font-size: 1.2vw; /* Scale text size dynamically */
+  line-height: 1.6;
+}
+
+/* For larger screens (desktops) */
+@media only screen and (min-width: 1200px) {
+  .row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .about-col-1 {
+    flex: 0 0 40%; /* Image column takes 40% of space */
+  }
+
+  .about-col-2 {
+    flex: 1;
+    padding-left: 30px;
+  }
+
+  .header-text h1 {
+    font-size: 4vw;
+  }
+
+  .about-col-2 p {
+    font-size: 1.4vw;
+    line-height: 1.8;
+  }
+
+  .tab-titles {
+    font-size: 1.5vw;
+  }
+}
+
+/* For mid-sized screens (tablets, small laptops) */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .row {
+    flex-direction: row; /* Keep columns side by side */
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .about-col-1 img {
+    max-width: 40vw; /* Adjust image size */
+  }
+
+  .about-col-2 p {
+    font-size: 1.6vw;
+    line-height: 1.6;
+  }
+
+  .tab-titles {
+    font-size: 1.8vw;
+  }
+}
+
+/* For smartphones (smaller screens) */
+@media only screen and (max-width: 767px) {
+  .row {
+    flex-direction: column; /* Stack the image and text vertically */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-col-1 {
+    width: 100%;
+    padding: 0;
+  }
+
+  .about-col-1 img {
+    width: 80vw; /* Image takes 80% of the viewport width */
+  }
+
+  .about-col-2 {
+    padding-left: 0;
+    padding-top: 20px;
+    text-align: center; /* Center text for better mobile display */
+  }
+
+  .about-col-2 p {
+    font-size: 4vw; /* Adjust font size dynamically for mobile */
+    line-height: 1.6;
+  }
+
+  .tab-titles {
+    font-size: 4vw;
+  }
+}
