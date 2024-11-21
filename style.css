@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 
@@ -85,7 +85,8 @@ body {
   color: var(--text-color);
 }
 
-.about-col-1, .about-col-2 {
+.about-col-1,
+.about-col-2 {
   flex-basis: 50%; /* Adjusts each section to take half the width */
 }
 
@@ -93,10 +94,9 @@ body {
   width: 200%;
   max-width: 400px; /* Adjust this value to make the image bigger */
   height: auto;
-  border-radius: 15px;  /* Keeps the rounded corners */
+  border-radius: 15px; /* Keeps the rounded corners */
   object-fit: cover;
 }
-
 
 .about-col-2 {
   padding-left: 20px;
@@ -160,6 +160,54 @@ body {
 
 .tab-contents.active-tab {
   display: block;
+}
+
+.container {
+  padding: 10px 10%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 140px;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: #ff004f;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.header-text {
+  margin-top: 20%;
+  font-size: 30px;
 }
 
 /* SERVICES Section */
@@ -356,7 +404,41 @@ form textarea {
   margin-top: 20px;
   color: var(--bg-color);
 }
+#fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1000;
+}
 
+.firework {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  animation: explode 1s ease-out forwards;
+}
+
+/* Firecracker explosion animation */
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(3);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
 /* Loading screen styles */
 #loading-screen {
   position: fixed;
@@ -392,15 +474,25 @@ form textarea {
 
 /* Spin animation */
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Text animation */
 @keyframes fadeInText {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Fading out the loading screen */
@@ -432,12 +524,12 @@ form textarea {
 .loader::after {
   content: "";
   flex: 4;
-  background: 
-    radial-gradient(at 50% 20%,#0000,#000a) bottom left/20px 20px repeat-x,
+  background: radial-gradient(at 50% 20%, #0000, #000a) bottom left/20px 20px
+      repeat-x,
     linear-gradient(red 0 0) bottom/100% 20px no-repeat #ddd;
-  -webkit-mask:
-    repeating-linear-gradient(90deg,#000 0 4px,#0000 0 20px) 8px 0,
-    radial-gradient(farthest-side,#000 90%,#0000) left bottom/20px 20px repeat-x;
+  -webkit-mask: repeating-linear-gradient(90deg, #000 0 4px, #0000 0 20px) 8px 0,
+    radial-gradient(farthest-side, #000 90%, #0000) left bottom/20px 20px
+      repeat-x;
 }
 
 .loader::after {
@@ -446,30 +538,38 @@ form textarea {
   animation: l12-1 1s cubic-bezier(0, 20, 1, 20) infinite;
 }
 
-@keyframes l12-0 { 
-  0%, 49.9% { transform: scaleX(1); }
-  50%, 100% { transform: scaleX(-1); }
+@keyframes l12-0 {
+  0%,
+  49.9% {
+    transform: scaleX(1);
+  }
+  50%,
+  100% {
+    transform: scaleX(-1);
+  }
 }
 
-@keyframes l12-1 { 
-  100% { transform: rotate(-2deg); }
+@keyframes l12-1 {
+  100% {
+    transform: rotate(-2deg);
+  }
 }
 
 /* Fading out the loading screen */
 #loading-screen.fade-out {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Initially hide main content */
 .hidden {
-    visibility: hidden;
+  visibility: hidden;
 }
 /* Default styles for all screens */
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 
@@ -578,6 +678,32 @@ body {
     font-size: 1.8vw;
   }
 }
+#gyroscope-effect {
+  height: 200px;
+  background-color: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s ease;
+}
+/* .tab-contents {
+  display: none;
+}
+
+.tab-contents.active-tab {
+  display: block;
+}
+
+.tab-links {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-links.active-link {
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
+} */
 
 /* For smartphones (smaller screens) */
 @media only screen and (max-width: 767px) {
